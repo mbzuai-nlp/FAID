@@ -275,17 +275,19 @@ if __name__ == "__main__":
     parser.add_argument('--num_workers', type=int, default=8)
     parser.add_argument('--embedding_dim', type=int, default=768)
 
-    parser.add_argument("--database_path", type=str, default="data/FALCONSet", help="Path to the data")
-    parser.add_argument('--dataset_name', type=str, default='falconset', help="falconset, llmdetectaive, hart")
+    # parser.add_argument('--mode', type=str, default='deepfake', help="deepfake,MGT or MGTDetect_CoCo")
+    parser.add_argument("--database_path", type=str, default="data/FAIDSetv2", help="Path to the data")
+    parser.add_argument('--dataset_name', type=str, default='faidsetv2', help="faidset, llmdetectaive, hart, faidsetv2")
     parser.add_argument('--database_name', type=str, default='train', help="train,valid,test,test_ood")
-    parser.add_argument("--model_path", type=str, default="runs/authscan_v6/model_best.pth",\
+    parser.add_argument("--model_path", type=str, \
                          help="Path to the embedding model checkpoint")
-    parser.add_argument('--model_name', type=str, default="FacebookAI/xlm-roberta-base", help="Model name")
-    parser.add_argument("--save_path", type=str, default="/output", help="Path to save the database")
+    parser.add_argument('--model_name', type=str, default="ZurichNLP/unsup-simcse-xlm-roberta-base", help="Model name")
+    parser.add_argument("--save_path", type=str, help="Path to save the database")
     parser.add_argument("--add_to_existed_index", type=int, default=0)
+    # parser.add_argument("--add_to_existed_index_path", type=str, default="/output", help="Path to save the database")
     parser.add_argument("--ood", type=int, default=0)
-    parser.add_argument("--existed_index_path", type=str, default="/output", help="Path of existed index")
-    parser.add_argument("--new_save_path", type=str, default="/new_db", help="Path to save the database")
+    parser.add_argument("--existed_index_path", type=str, help="Path of existed index")
+    parser.add_argument("--new_save_path", type=str, help="Path to save the database")
     
     parser.add_argument('--seed', type=int, default=0)
     opt = parser.parse_args()
